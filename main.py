@@ -1,3 +1,4 @@
+"""Ask questions about a PDF from the command line."""
 from __future__ import annotations
 
 import argparse
@@ -12,9 +13,9 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 def ingest(args) -> None:
     from chunker import chunk
     from embed import index
-    from extract import extract, stable_doc_id
+    from extract import extract, parse_pages, stable_doc_id
     try:
-        doc = extract(args.source, describe_pictures=False, pages=None)
+        doc = extract(args.source, describe_pictures=False, pages=parse_pages(args.pages) if args.pages else None)
     except (FileNotFoundError, RuntimeError) as exc:
         raise SystemExit(f"error: {exc}")
 
