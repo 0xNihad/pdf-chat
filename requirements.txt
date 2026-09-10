@@ -1,0 +1,7 @@
+docling[rapidocr]==2.126.0
+docling-core[chunking]==2.95.0
+
+cohere==7.1.1
+qdrant-client==1.19.0
+litellm==1.100.0
+python-dotenv==1.2.3
